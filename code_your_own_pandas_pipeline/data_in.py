@@ -6,7 +6,8 @@ folder.
 import pandas as pd
 from loguru import logger
 
-from code_your_own_pandas_pipeline.config import RAW_DATA_DIR  
+from code_your_own_pandas_pipeline.config import RAW_DATA_DIR
+
 
 def read_mapping_data() -> pd.DataFrame:
     """
@@ -42,7 +43,7 @@ def read_practice_crosstab_data() -> pd.DataFrame:
     ]
 
     practice_datasets = []
-    for file_path in file_paths: 
+    for file_path in file_paths:
         full_file_path = RAW_DATA_DIR / file_path
         logger.info(f"Reading practice crosstab data from {full_file_path}")
 
@@ -51,6 +52,5 @@ def read_practice_crosstab_data() -> pd.DataFrame:
 
     logger.info("Concatenating the practice crosstab datasets into one dataset")
     practice_crosstab_data = pd.concat(practice_datasets)
-    
-    return practice_crosstab_data
 
+    return practice_crosstab_data
